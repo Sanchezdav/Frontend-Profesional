@@ -1,5 +1,13 @@
+@import "nib"
 @import 'normalize.styl'
 @import 'fonts.styl'
+
+/*animacion(parametro)
+	-webkit-animation parametro
+	-moz-animation parametro
+	-ms-animation parametro
+	-o-animation parametro
+	animation parametro*/
 
 gris_oscuro = #333333
 gris_claro = #818181
@@ -103,6 +111,7 @@ ul
 
 .playing
 	&.small
+		margin 0 auto
 		width 20em
 
 .progress
@@ -124,12 +133,14 @@ ul
 		margin 0 auto
 		width 75%
 	.state
+		animation 2s state infinite linear
 		background rojo
 		border-radius 5px
 		height 5px
 		position relative
 		width 30%
 	.circle
+		animation 1s circle infinite
 		background gris_oscuro
 		border-radius 50%
 		height 10px
@@ -174,6 +185,54 @@ ul
 .wrap
 	width 980px
 
+.playlist
+		border-left 1px solid gris_claro
+		display none
+		padding 0 2em
+		width 21em
+		.list
+			list-style none
+		.item
+			padding 1em 0
+		.action
+			font-size 14px
+
+.avatar
+	height 38px
+	width 38px
+.isotipo
+	width 122px
+.logo
+	background white
+	display none
+	overflow hidden
+	padding 1.3em 0
+.username
+	color gris_claro
+	margin-left .5em
+	position relative
+	top 9px
+	&:after
+		border-left 7px solid transparent
+		border-right 7px solid transparent
+		border-top 9px solid gris_claro
+		content ""
+		display inline-block
+		margin-left .4em
+
+@keyframes state
+	0%
+		width 0
+	100%
+		width 100%
+
+@keyframes circle
+	0%
+		transform scale(1)
+	100%
+		opacity 0
+		transform scale(1.7)
+
 @media screen and (min-width:480px)
 	.image
 		img
@@ -191,23 +250,16 @@ ul
 @media screen and (min-width:980px)
 	body
 		background gris_mas_claro
-	.avatar
-		height 38px
-		width 38px
 	.button-menu
 		display none
 	.header
+		border none
 		height auto
 		.title
 			display none
-	.isotipo
-		width 122px
-	.logo
-		background white
-		overflow hidden
-		padding 1.3em 0
 	.menu
 		background gris_mas_claro
+		border-top 1px solid gris_claro
 		display block
 		overflow hidden
 		.item
@@ -222,16 +274,18 @@ ul
 				text-transform uppercase
 				&:hover
 					border-top 5px solid gris_claro
-	.username
-		color gris_claro
-		margin-left .5em
-		position relative
-		top 9px
-		&:after
-			border-left 7px solid transparent
-			border-right 7px solid transparent
-			border-top 9px solid gris_claro
-			content ""
-			display inline-block
-			margin-left .4em
+	.music
+		float left
+		width 32.5em
+		.description
+			display none
+	.playing
+		padding-top 1.3em
+		&.large
+			margin 0 auto
+			overflow hidden
+			width 61.25em
+	.logo
+	.playlist
+		display block
 			
